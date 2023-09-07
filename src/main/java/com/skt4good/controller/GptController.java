@@ -40,4 +40,10 @@ public class GptController {
 
         return arr;
     }
+
+    @PostMapping("/older")
+    public String chat(@RequestBody String chat) {
+        return chatService.getChatResponse("노인이라고 생각하고 질문에 답변을 해줘 주어는 저는 이라고 해야돼 : " + chat);
+    }
+
 }

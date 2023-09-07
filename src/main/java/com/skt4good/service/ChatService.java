@@ -13,4 +13,8 @@ public class ChatService {
     public String getChatResponse(String prompt) {
         return chatgptService.sendMessage(prompt);
     }
+
+    public String getImageResponse(String prompt) {
+        return chatgptService.imageGenerate(prompt);
+    }
 }

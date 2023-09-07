@@ -22,6 +22,9 @@ public class GptController {
     private final ChatService chatService;
     private final ChatgptService chatgptService;
 
+    /**
+     * 키워드 뽑기
+     */
     @PostMapping("")
     public List<String> test(@RequestBody String question) {
         List<String> arr = new ArrayList<>();
@@ -41,9 +44,20 @@ public class GptController {
         return arr;
     }
 
+    /**
+     * 노인같은 채팅서비스
+     */
     @PostMapping("/older")
     public String chat(@RequestBody String chat) {
         return chatService.getChatResponse("노인이라고 생각하고 질문에 답변을 해줘 주어는 저는 이라고 해야돼 : " + chat);
+    }
+
+    /**
+     * 채팅한 내용을 바탕으로 이미지 만들기
+     */
+    @PostMapping("/getCardData")
+    public String Image(@RequestBody String fullChat) {
+        return chatService.getImageResponse(fullChat);
     }
 
 }
